@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haoran Zhang - Personal Homepage</title>
+    <style>
+        /* ============================================
+           基础样式 / Basic Styles
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* ============================================
+           导航栏 / Navigation
+           ============================================ */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* ============================================
+           容器和布局 / Container and Layout
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+        }
+
+        section:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* ============================================
+           个人简介 / Hero Section
+           ============================================ */
+        #hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           学术研究 / Academic Research Section
+           ============================================ */
+        .publication-item {
+            background-color: #fff;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .publication-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .publication-item .authors {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .venue {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .links {
+            margin-top: 1rem;
+        }
+
+        .publication-item .links a {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .publication-item .links a:hover {
+            background-color: #2980b9;
+        }
+
+        /* ============================================
+           作品集 / Portfolio Gallery (个人作品和艺术作品)
+           ============================================ */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item-image {
+            width: 100%;
+            height: 250px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+
+        .gallery-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-item-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-item-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .gallery-item-content .tags {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .gallery-item-content .tags span {
+            background-color: #ecf0f1;
+            color: #555;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .gallery-item-content .links {
+            margin-top: 1rem;
+        }
+
+        .gallery-item-content .links a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+
+        .gallery-item-content .links a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           页脚 / Footer
+           ============================================ */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           响应式设计 / Responsive Design
+           ============================================ */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            #hero h1 {
+                font-size: 2rem;
+            }
+
+            #hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         导航栏 / Navigation Bar
+         ============================================ -->
+    <nav>
+        <div class="container">
+            <h1>Haoran Zhang</h1>
+            <ul>
+                <li><a href="#academic">学术研究</a></li>
+                <li><a href="#projects">个人作品</a></li>
+                <li><a href="#artwork">艺术作品</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         个人简介 / Hero Section
+         ============================================ -->
+    <section id="hero">
+        <div class="container">
+            <h1>Haoran Zhang</h1>
+            <p>Computer Graphics | Technical Art | Architecture</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         学术研究 / Academic Research
+         更新方法：复制下面的 publication-item div，修改标题、作者、会议/期刊、链接等信息
+         ============================================ -->
+    <section id="academic">
+        <div class="container">
+            <h2>学术研究 Academic Research</h2>
+            
+            <!-- 论文 1 / Publication 1 -->
+            <!-- 更新方法：修改下面的内容 -->
+            <div class="publication-item">
+                <h3>论文标题 / Paper Title 1</h3>
+                <div class="authors">作者名单 / Author Names (例如: Zhang H., Li M., Wang X.)</div>
+                <div class="venue">会议/期刊名称 / Conference/Journal Name, 年份 / Year</div>
+                <p>论文简介：简要描述研究内容和主要贡献。</p>
+                <div class="links">
+                    <a href="#" target="_blank">PDF</a>
+                    <a href="#" target="_blank">Code</a>
+                    <a href="#" target="_blank">Project Page</a>
+                </div>
+            </div>
+
+            <!-- 论文 2 / Publication 2 -->
+            <!-- 更新方法：修改下面的内容 -->
+            <div class="publication-item">
+                <h3>论文标题 / Paper Title 2</h3>
+                <div class="authors">作者名单 / Author Names</div>
+                <div class="venue">会议/期刊名称 / Conference/Journal Name, 年份 / Year</div>
+                <p>论文简介：简要描述研究内容和主要贡献。</p>
+                <div class="links">
+                    <a href="#" target="_blank">PDF</a>
+                    <a href="#" target="_blank">Code</a>
+                    <a href="#" target="_blank">Project Page</a>
+                </div>
+            </div>
+
+            <!-- 添加更多论文：复制上面的 publication-item div -->
+        </div>
+    </section>
+
+    <!-- ============================================
+         个人作品 / Personal Projects
+         更新方法：复制下面的 gallery-item div，修改图片、标题、描述、标签、链接等
+         图片说明：将图片放在 images/projects/ 文件夹中，然后修改 src 路径
+         ============================================ -->
+    <section id="projects">
+        <div class="container">
+            <h2>个人作品 Personal Projects</h2>
+            <div class="gallery">
+                
+                <!-- 项目 1 / Project 1 -->
+                <!-- 更新方法：修改图片路径、标题、描述、标签和链接 -->
+                <div class="gallery-item">
+                    <div class="gallery-item-image">
+                        <!-- 替换成实际图片：<img src="images/projects/project1.jpg" alt="Project 1"> -->
+                        <span>项目图片占位<br>300x250px</span>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3>图形学项目名称</h3>
+                        <p>项目描述：简要介绍这个项目的内容、使用的技术和主要特点。</p>
+                        <div class="tags">
+                            <span>OpenGL</span>
+                            <span>Rendering</span>
+                            <span>Shader</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">GitHub →</a>
+                            <a href="#" target="_blank">Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目 2 / Project 2 -->
+                <div class="gallery-item">
+                    <div class="gallery-item-image">
+                        <!-- 替换成实际图片：<img src="images/projects/project2.jpg" alt="Project 2"> -->
+                        <span>项目图片占位<br>300x250px</span>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3>技术美术项目名称</h3>
+                        <p>项目描述：简要介绍这个技术美术相关的项目。</p>
+                        <div class="tags">
+                            <span>Unity</span>
+                            <span>VFX</span>
+                            <span>Shader Graph</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">GitHub →</a>
+                            <a href="#" target="_blank">Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目 3 / Project 3 -->
+                <div class="gallery-item">
+                    <div class="gallery-item-image">
+                        <!-- 替换成实际图片：<img src="images/projects/project3.jpg" alt="Project 3"> -->
+                        <span>项目图片占位<br>300x250px</span>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3>渲染项目名称</h3>
+                        <p>项目描述：简要介绍这个渲染相关的项目。</p>
+                        <div class="tags">
+                            <span>Ray Tracing</span>
+                            <span>PBR</span>
+                            <span>C++</span>
+                        </div>
+                        <div class="links">
+                            <a href="#" target="_blank">GitHub →</a>
+                            <a href="#" target="_blank">Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 添加更多项目：复制上面的 gallery-item div -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         艺术作品 / Artwork (Architecture Design)
+         更新方法：复制下面的 gallery-item div，修改图片、标题、描述等
+         图片说明：将建筑设计作品图片放在 images/artwork/ 文件夹中
+         ============================================ -->
+    <section id="artwork">
+        <div class="container">
+            <h2>艺术作品 Artwork</h2>
+            <p style="margin-bottom: 2rem; color: #666;">本科期间的建筑设计作品</p>
+            <div class="gallery">
+                
+                <!-- 作品 1 / Artwork 1 -->
+                <!-- 更新方法：修改图片路径、标题和描述 -->
+                <div class="gallery-item">
+                    <div class="gallery-item-image">
+                        <!-- 替换成实际图片：<img src="images/artwork/design1.jpg" alt="Design 1"> -->
+                        <span>建筑设计作品<br>300x250px</span>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3>建筑设计项目名称 1</h3>
+                        <p>设计描述：简要介绍这个建筑设计作品的理念、特点和创作背景。</p>
+                        <div class="tags">
+                            <span>建筑设计</span>
+                            <span>2020</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品 2 / Artwork 2 -->
+                <div class="gallery-item">
+                    <div class="gallery-item-image">
+                        <!-- 替换成实际图片：<img src="images/artwork/design2.jpg" alt="Design 2"> -->
+                        <span>建筑设计作品<br>300x250px</span>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3>建筑设计项目名称 2</h3>
+                        <p>设计描述：简要介绍这个建筑设计作品。</p>
+                        <div class="tags">
+                            <span>建筑设计</span>
+                            <span>2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品 3 / Artwork 3 -->
+                <div class="gallery-item">
+                    <div class="gallery-item-image">
+                        <!-- 替换成实际图片：<img src="images/artwork/design3.jpg" alt="Design 3"> -->
+                        <span>建筑设计作品<br>300x250px</span>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3>建筑设计项目名称 3</h3>
+                        <p>设计描述：简要介绍这个建筑设计作品。</p>
+                        <div class="tags">
+                            <span>建筑设计</span>
+                            <span>2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 添加更多作品：复制上面的 gallery-item div -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         页脚 / Footer
+         更新方法：修改联系方式和链接
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Haoran Zhang. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="mailto:your.email@example.com">Email</a> | 
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
+                <a href="https://scholar.google.com/citations?user=YOURUSER" target="_blank">Google Scholar</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
