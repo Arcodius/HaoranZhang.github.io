@@ -111,7 +111,7 @@ HaoranZhang.github.io/
 ### 4. 更新个人信息
 
 **修改导航栏名字：**
-找到 `<nav>` 部分，修改 `<h1>Your Name</h1>`
+找到 `<nav>` 部分，修改 `<h1>Haoran Zhang</h1>`
 
 **修改Hero区域：**
 找到 `<section id="hero">` 部分，修改名字和简介
@@ -136,7 +136,7 @@ HaoranZhang.github.io/
    git commit -m "Update content"
    git push
    ```
-4. 几分钟后，访问 `https://arcodius.github.io/HaoranZhang.github.io/` 查看更新
+4. 几分钟后，访问你的 GitHub Pages 地址查看更新（通常是 `https://username.github.io/repository-name/`）
 
 ## 💡 提示
 
